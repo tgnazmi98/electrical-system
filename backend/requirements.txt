@@ -1,0 +1,17 @@
+Django>=4.2.0
+djangorestframework
+djangorestframework-simplejwt==5.3.1
+django-cors-headers
+django-prometheus>=2.3.1
+psycopg2-binary
+python-dotenv
+gunicorn
+whitenoise
+pandas
+openpyxl
+reportlab
+pytz
+channels>=4.0.0
+channels-redis>=4.2.0
+daphne>=4.0.0
+redis>=5.0.0
