@@ -7,6 +7,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - hm_timescale_data:/var/lib/postgresql/data
+    restart: unless-stopped
     ports:
       - "${HOMELAB_IP}:5433:5432"
     healthcheck:
@@ -29,6 +30,7 @@ services:
 
   backend:
     build: ./backend
+    restart: unless-stopped
     environment:
       - DEBUG=${DEBUG}
       - SECRET_KEY=${SECRET_KEY}
@@ -83,6 +85,7 @@ services:
       args:
         - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
         - NEXT_PUBLIC_WS_HOST=${NEXT_PUBLIC_WS_HOST}
+    restart: unless-stopped
     depends_on:
       backend:
         condition: service_healthy
